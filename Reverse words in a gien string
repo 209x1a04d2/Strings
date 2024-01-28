@@ -1,0 +1,19 @@
+class Solution(object):
+    def reverseWords(self, s):
+        ans,s1 = "",""
+        for c in s:
+            if(c!=' '): s1+=c
+            else:
+                if(ans == ''): ans+=s1
+                else: 
+                    if(s1!=""): ans=s1+" "+ans
+                s1=""
+        if(ans==''): ans+=s1
+        elif(s1!=""): ans = s1+" "+ans
+
+        return ans;
+        """
+        :type s: str
+        :rtype: str
+        """
+        
