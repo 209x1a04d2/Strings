@@ -1,0 +1,17 @@
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        ans,indx = 0,0
+        sign = 1;
+        s = s.strip()
+        if(len(s)<=0): return 0;
+
+        if(s[0]=='-'): sign = -1;
+        if(s[0]=='+' or sign==-1): indx+=1;
+        for i in range(indx,len(s)):
+            if(s[i] not in ['0','1','2','3','4','5','6','7','8','9']): break;
+            d = ord(s[i])-ord('0')
+            if(214748364 < ans or (ans==214748364 and ((sign == -1 and d>8) or (d>7)))):
+                if sign == -1: return -2147483648;
+                else: return 2147483647;
+            ans = ans * 10 + d;
+        return sign*ans;
