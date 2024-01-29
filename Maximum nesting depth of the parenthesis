@@ -1,0 +1,14 @@
+https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/solutions/4642056/tc-o-n-and-sc-o-1-simple-solution
+
+class Solution:
+    def maxDepth(self, s: str) -> int:
+        n = len(s)
+        maxi,depth = 0,0
+        if(s[0] == '('):
+            maxi = 1;
+            depth = 1;
+        for i in range(1,n):
+            if(s[i] == ')'): depth -= 1
+            elif(s[i] == '('): depth += 1
+            maxi = max(maxi,depth);
+        return maxi;
